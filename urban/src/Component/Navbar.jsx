@@ -1,24 +1,27 @@
 import React from 'react'
 import homeStyle from "../Css/Home.module.css"
 import { 
-    Box,
-  Flex,
+    InputLeftAddon,
+    InputGroup,
   Text,
   Select,
   Image,
-  Button,
+  Input,
   Heading,
-  MenuButton,
-  useDisclosure,
-  useColorModeValue,
-  Stack,
-  background,
   Container,
+  Link,
+  InputRightAddon,
+  HStack,
+  Box,
+  Flex
+
 } from '@chakra-ui/react'
 import { NavLink } from "react-router-dom";
+import Home_Data from "./HomeData"
 // import logo from "../image/logo.png"
+import Footer from "./Footer";
 
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+// import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
 //!Navlinks of navbar
 const Links=[
@@ -63,7 +66,7 @@ function Navbar() {
                 <div className={homeStyle.navLink}> 
                     {
                         Links.map((nav)=>(
-                            <NavLink to={nav.to}
+                            <NavLink to={nav.to} target="_blank"
                                 style={({ isActive }) =>
                                 isActive ? activeStyle : undefined
                                 }
@@ -110,53 +113,114 @@ function Navbar() {
             </div>
 
             {/* Container */}
-
-            <div className={homeStyle.why_urban_company}>
-                <Heading as='h3' size='lg'>
-                    Why Urban Company
-                </Heading>
-                <ul>
-                    <li style={{display:"flex"}}>
-                        <div>
-                            <img src='https://res.cloudinary.com/urbanclap/image/upload/q_40,f_auto/categories/category_v2/category_29614d40.png' alt="img"/>
-                        </div>
-                        <section>
-                            <Heading as='h4' size='md'>Transparent Price</Heading>
-                            <Text fontSize='lg'>See fixed the price before you book.No hidden charge</Text>
-                        </section>
-                    </li>
-                    <li style={{display:"flex"}}>
-                        <div>
-                            <img src='https://res.cloudinary.com/urbanclap/image/upload/q_40,f_auto/categories/category_v2/category_2cc7d0d0.png' alt="img"/>
-                        </div>
-                        <section>
-                            <Heading as='h4' size='md'>Transparent Price</Heading>
-                            <Text fontSize='lg'>See fixed the price before you book.No hidden charge</Text>
-                        </section>
-                    </li>
-                    <li style={{display:"flex"}}>
-                        <div>
-                            <img src='https://res.cloudinary.com/urbanclap/image/upload/q_40,f_auto/categories/category_v2/category_2caafa00.png' alt="img"/>
-                        </div>
-                        <section>
-                            <Heading as='h4' size='md'>Transparent Price</Heading>
-                            <Text fontSize='lg'>See fixed the price before you book.No hidden charge</Text>
-                        </section>
-                    </li>
-                    
-                </ul>
-                
-
-                <div>
-                    {/* <div>
-                        <Image src="https://res.cloudinary.com/urbanclap/image/upload/q_20,f_auto/categories/category_v2/category_cb4d9130.png" />
+            <section  style={{borderBottom:"15px solid gray"}}>
+                <Container display={"flex"}  maxW='1150px' pb={"15"}>
+                    <div className={homeStyle.why_urban_company}>
+                        <Heading as='h3' size='lg' pb={10}>
+                            Why Urban Company
+                        </Heading>
+                        {Home_Data.map((el)=>(
+                            <ul>
+                                <li className={homeStyle.why_urban_company_list}>
+                                    {/* <Cont> */}
+                                        {/* <div> */}
+                                            <Image  
+                                                src={el.src}
+                                                alt={el.title}
+                                                width={{md:"15%"}}
+                                                objectFit='cover' 
+                                                boxSize='100%px' 
+                                                display={'inline-block'}
+                                                pb={8}
+                                                />
+                                        {/* </div> */}
+                                        <section>
+                                            <Heading as='h4' size='md'>Transparent Price</Heading>
+                                            <Text fontSize='lg'>See fixed the price before you book.No hidden charge</Text>
+                                        </section> 
+                                    {/* </Cont>  */}
+                                </li>
+                            </ul>
+                        ))}
                     </div>
-                    <div>
-                        <h3>100% Quality Assured</h3>
-                        <p>If you don't love our service,we will make it right</p>
-                    </div> */}
-                </div>
-            </div>
+                        
+                    <div  className={homeStyle.quality}>
+                        <div>
+                            <Image 
+                            src="https://res.cloudinary.com/urbanclap/image/upload/q_20,f_auto/categories/category_v2/category_cb4d9130.png" 
+                            alt='img'
+                            width={{md:"30%"}}  
+                            />
+                        </div>
+                        <div >
+                            <Heading as='h3' size='lg' pt={18}>100% Quality Assured</Heading>
+                            <Text fontSize='xl' pt={5}>If you don't love our service,we will make it right</Text>
+                        </div>
+                    </div> 
+                </Container> 
+            </section>
+
+
+
+            <section>
+                <Container display={"flex"}  maxW='1150px' >
+                    <div className={homeStyle.why_urban_company}>
+                        <Heading as='h2' size='2xl' pb={10}>
+                            Books Professional Form Your Phone
+                        </Heading>
+                        <Text fontSize='xl' pb={5}>Enter your mobile number to get the App download link</Text>
+                        <InputGroup>
+                            <InputLeftAddon children='+91' />
+                            <Input type='tel' placeholder='phone number' w={"50%"} />
+                            {/* <Button  colorScheme='teal' variant='outline'>
+                                Send
+                            </Button> */}
+                            <InputRightAddon children='Submited' />
+                        </InputGroup>
+                       <Box>
+                       <div className={homeStyle.playStore} style={{display:"flex"}}>
+                            <div w={"50%"}>
+                                <Link href='https://chakra-ui.com'   isExternal>
+                                    <Image 
+                                    src="https://images.urbanclap.com/image/upload/categories/category_v2/category_7f907eb0.png" 
+                                    alt='playStore'
+                                    w={"50%"}
+                                    />
+                                </Link>
+                            </div>
+                            <div w={"50%"}>
+                                <Link href='https://chakra-ui.com'  isExternal>
+                                    <Image 
+                                    src="https://images.urbanclap.com/image/upload/categories/category_v2/category_7f907eb0.png" 
+                                    alt='playStore'
+                                    w={"50%"}
+                                    />
+                                </Link>
+                            </div>
+                        </div>
+                       </Box>
+                    </div>
+                        
+                    <div  className={homeStyle.mobileView}>
+                        <div>
+                            <Image 
+                            src="https://res.cloudinary.com/urbanclap/image/upload/w_300,f_auto/categories/category_v2/category_2d7045d0.png" 
+                            alt='img'
+                            width={{md:"100%"}}  
+                            />
+                        </div>
+                        <div >
+                            <Image 
+                            src="https://res.cloudinary.com/urbanclap/image/upload/w_300,f_auto/categories/category_v2/category_2d7045d0.png" 
+                            alt='img'
+                            width={{md:"100%"}}  
+                            />
+                        </div>
+                    </div> 
+                </Container> 
+            </section>
+            {/*Footer  */}
+            <Footer/>
         </>
        
     );
