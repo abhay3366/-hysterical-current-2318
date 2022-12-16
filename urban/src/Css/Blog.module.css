@@ -1,0 +1,23 @@
+.banner{
+   width: 100%;
+   overflow: hidden;
+   background: black;
+   position: relative;
+}
+.blogSearch{
+    background-color: white;
+    color: white;
+    position: absolute;
+    top: 30%;
+    left: 60%;
+}
+.company_tab{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: 90%;
+    margin: auto;
+    gap: 20px;
+}
+.container{
+   
+}

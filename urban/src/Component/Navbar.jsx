@@ -1,24 +1,26 @@
 import React from 'react'
 import homeStyle from "../Css/Home.module.css"
 import { 
-    Box,
-  Flex,
+    InputLeftAddon,
+    InputGroup,
   Text,
   Select,
   Image,
-  Button,
+  Input,
   Heading,
-  MenuButton,
-  useDisclosure,
-  useColorModeValue,
-  Stack,
-  background,
   Container,
+  Link,
+  InputRightAddon,
+  HStack,
+  Box,
+  Flex
+
 } from '@chakra-ui/react'
 import { NavLink } from "react-router-dom";
-// import logo from "../image/logo.png"
+import Home_Data from "./HomeData"
+import Footer from "./Footer";
 
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+// import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
 //!Navlinks of navbar
 const Links=[
@@ -63,7 +65,7 @@ function Navbar() {
                 <div className={homeStyle.navLink}> 
                     {
                         Links.map((nav)=>(
-                            <NavLink to={nav.to}
+                            <NavLink to={nav.to} 
                                 style={({ isActive }) =>
                                 isActive ? activeStyle : undefined
                                 }
@@ -76,87 +78,7 @@ function Navbar() {
                 </div>
             </div>
 
-            {/* Banner */}
 
-            <div className={homeStyle.home_banner} >
-                <div>
-                    {/* <div className={homeStyle.banner_black_overlay}
-                    style={{
-                        width:"683px",
-                        height:"550px",
-                        position:"absolute",
-                        left:"0px",
-                        top:"63px",
-                        zIndex:"999", 
-                        }}>fsaddf</div> */}
-                    <Image src='https://res.cloudinary.com/urbanclap/image/upload/q_40,f_auto/categories/category_v2/category_19be5040.jpeg' alt="ing"/>
-                </div>
-                <div className={homeStyle.home_banner_content}>
-                    <div className={homeStyle.banner_data}>
-                        <Text fontSize='2xl' color={"white"}>URBAN COMPANY</Text>
-                        <Heading as='h3' size='xl'  color={"white"} mt={3}>
-                            Quality home service,on demand
-                        </Heading>
-                        <Text fontSize='2xl' color={"white"} mt={4}>Experienced,hand-picked Professional to serve you at your doorstep</Text>
-
-                        <div style={{backgroundColor:"white",width:"350px",height:"120px",marginTop:"30px"}}>
-                            <Text fontSize='xl' p={4}>Where do you need a service?</Text>
-                            <Select placeholder='Select your city' style={{marginLeft:"20px",width:"300px"}}>
-                                <option value='option1'>India</option>
-                            </Select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Container */}
-
-            <div className={homeStyle.why_urban_company}>
-                <Heading as='h3' size='lg'>
-                    Why Urban Company
-                </Heading>
-                <ul>
-                    <li style={{display:"flex"}}>
-                        <div>
-                            <img src='https://res.cloudinary.com/urbanclap/image/upload/q_40,f_auto/categories/category_v2/category_29614d40.png' alt="img"/>
-                        </div>
-                        <section>
-                            <Heading as='h4' size='md'>Transparent Price</Heading>
-                            <Text fontSize='lg'>See fixed the price before you book.No hidden charge</Text>
-                        </section>
-                    </li>
-                    <li style={{display:"flex"}}>
-                        <div>
-                            <img src='https://res.cloudinary.com/urbanclap/image/upload/q_40,f_auto/categories/category_v2/category_2cc7d0d0.png' alt="img"/>
-                        </div>
-                        <section>
-                            <Heading as='h4' size='md'>Transparent Price</Heading>
-                            <Text fontSize='lg'>See fixed the price before you book.No hidden charge</Text>
-                        </section>
-                    </li>
-                    <li style={{display:"flex"}}>
-                        <div>
-                            <img src='https://res.cloudinary.com/urbanclap/image/upload/q_40,f_auto/categories/category_v2/category_2caafa00.png' alt="img"/>
-                        </div>
-                        <section>
-                            <Heading as='h4' size='md'>Transparent Price</Heading>
-                            <Text fontSize='lg'>See fixed the price before you book.No hidden charge</Text>
-                        </section>
-                    </li>
-                    
-                </ul>
-                
-
-                <div>
-                    {/* <div>
-                        <Image src="https://res.cloudinary.com/urbanclap/image/upload/q_20,f_auto/categories/category_v2/category_cb4d9130.png" />
-                    </div>
-                    <div>
-                        <h3>100% Quality Assured</h3>
-                        <p>If you don't love our service,we will make it right</p>
-                    </div> */}
-                </div>
-            </div>
         </>
        
     );
