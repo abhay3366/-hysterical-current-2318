@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from "react-router-dom"
-import Blog from './Blog'
+import Blog from '../Component/Blog'
 import HelpCenter from './HelpCenter'
 import Home from './Home'
 import Login from './Login'

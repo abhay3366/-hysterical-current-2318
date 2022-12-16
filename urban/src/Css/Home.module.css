@@ -5,6 +5,7 @@
     background-color:#000000;
     padding: 12px;
     position: fixed;
+    z-index: 777777;
 }
 .navLink{
     display: flex;
