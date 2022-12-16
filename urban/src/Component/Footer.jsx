@@ -356,7 +356,7 @@ function Footer() {
                                     src="https://images.urbanclap.com/image/upload/categories/category_v2/category_7f907eb0.png" 
                                     alt='playStore'
                                     display="inline-block"
-                                    // w={"50%"}
+                                   
                                     />
                                 </Link>
                             </div>
@@ -365,7 +365,6 @@ function Footer() {
                                     <Image 
                                     src="https://images.urbanclap.com/image/upload/categories/category_v2/category_7f907eb0.png" 
                                     alt='playStore'
-                                    // w={"50%"}
                                     display="inline-block"
                                     />
                                 </Link>

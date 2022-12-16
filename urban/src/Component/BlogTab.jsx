@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
 import blogStyle from "../Css/Blog.module.css"
-import { Tabs,Button,Flex,Divider,CardFooter,Text,Stack,Heading, TabList,CardBody, TabPanels, Tab, TabPanel,Image,Card } from '@chakra-ui/react'
+import { Tabs,MenuItem,MenuButton,MenuList,Menu,Button,Flex,Divider,CardFooter,Text,Stack,Heading, TabList,CardBody, TabPanels, Tab, TabPanel,Image,Card } from '@chakra-ui/react'
 import Community from '../Data/BlogData'
+import { AiFillCaretDown } from "react-icons/ai";
+import BlogFooter from './BlogFooter';
+
+
+
 function BlogTab() {
   const [noOfElement, setnoOfElement] = useState(4)
 
   const slice=Community.slice(0,noOfElement);
 
   function loadMore(){
-    if(Community.length>=noOfElement){
-      
-    }
+
     setnoOfElement(noOfElement+2)
   }
   return (
@@ -461,27 +464,48 @@ function BlogTab() {
                 
 
             ))}
-            <Button colorScheme='teal' variant='outline' w={"100px"} onClick={loadMore}>
+
+              {
+                noOfElement<Community.length?
+                <Button colorScheme='teal' variant='outline' w={"100px"} onClick={loadMore}>
                 Load More
-              </Button>
+              </Button>:null
+              }
           </TabPanel>
 
           {/* Lifestyle */}
           <TabPanel>
-            <ul>
-              <li></li>
-              <li>
-                <ul>
-                  <li></li>
-                </ul>
-              </li>
-              <li></li>
-            </ul>
+          <Menu>
+            <MenuButton as={Button} rightIcon={<AiFillCaretDown />}>
+              Actions
+            </MenuButton>
+            <MenuList>
+              <MenuItem>Download</MenuItem>
+              <MenuItem>Create a Copy</MenuItem>
+              <MenuItem>Mark as Draft</MenuItem>
+              <MenuItem>
+              <Menu>
+            <MenuButton as={Button} rightIcon={<AiFillCaretDown />}>
+              Actions
+            </MenuButton>
+            <MenuList>
+              <MenuItem>Download</MenuItem>
+              <MenuItem>Create a Copy</MenuItem>
+              <MenuItem>Mark as Draft</MenuItem>
+              <MenuItem>Delete</MenuItem>
+              <MenuItem>Attend a Workshop</MenuItem>
+            </MenuList>
+          </Menu>
+              
+              </MenuItem>
+              <MenuItem>Attend a Workshop</MenuItem>
+            </MenuList>
+          </Menu>
           </TabPanel>
 
         </TabPanels>
-       
       </Tabs>
+      <BlogFooter/>
     </>
   )
 }

@@ -18,6 +18,11 @@
     margin: auto;
     gap: 20px;
 }
-.container{
-   
+.BlogFooter{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.social_icons{
+    display: flex; 
+    margin-top: 30px;
 }
