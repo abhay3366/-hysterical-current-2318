@@ -11,12 +11,9 @@ import {
   Container,
   Link,
   InputRightAddon,
-  HStack,
   Box,
-  Flex
-
 } from '@chakra-ui/react'
-import { NavLink } from "react-router-dom";
+
 import Home_Data from "../Component/HomeData"
 import Footer from "../Component/Footer";
 
@@ -107,9 +104,7 @@ function Home() {
                         <InputGroup>
                             <InputLeftAddon children='+91' />
                             <Input type='tel' placeholder='phone number' w={"50%"} />
-                            {/* <Button  colorScheme='teal' variant='outline'>
-                                Send
-                            </Button> */}
+ 
                             <InputRightAddon children='Submited' />
                         </InputGroup>
                        <Box>
