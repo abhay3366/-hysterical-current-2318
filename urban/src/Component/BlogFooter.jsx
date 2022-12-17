@@ -9,30 +9,32 @@ function BlogFooter() {
     <>
         <div className={blogStyle.BlogFooter}>
             <div>
-                <Image src='https://bit.ly/dan-abramov' alt='Dan Abramov' />
+                <Image boxSize="65%"  src='https://blog.urbancompany.com/wp-content/uploads/2022/09/the-urban-life-logo-768x187.png' alt='Dan Abramov' />
             </div>
             <Flex>
                 <div>
                 <Image 
-                    src="https://res.cloudinary.com/urbanclap/image/upload/w_300,f_auto/categories/category_v2/category_2d7045d0.png" 
+                    src="https://blog.urbancompany.com/wp-content/uploads/2022/09/OIP-1.jpg" 
                     alt='img'
-                    width={{md:"100%"}}  
+                    width={{md:"100%"}}
+                    boxSize="75%"   
                 />
                 </div>
                 <div>
                 <Image 
-                    src="https://res.cloudinary.com/urbanclap/image/upload/w_300,f_auto/categories/category_v2/category_2d7045d0.png" 
+                    src="https://blog.urbancompany.com/wp-content/uploads/2022/09/download-1-1.png" 
                     alt='img'
                     width={{md:"100%"}}  
+                    boxSize="75%"   
                 />
                 </div>
             </Flex>
             <div className={blogStyle.social_icons} >
-                <Link to=""><AiFillTwitterSquare size={"30px"}/></Link>
-                <Link to=""><AiFillFacebook size={"30px"}/></Link>
-                <Link to=""><AiFillInstagram size={"30px"}/></Link>
-                <Link to=""><FaPinterestSquare size={"30px"}/></Link>
-                <Link to=""><AiFillLinkedin size={"30px"}/></Link>
+                <Link to=""><Image src='https://blog.urbancompany.com/wp-content/uploads/2022/09/instagram-2.png' /></Link>
+                <Link to=""><AiFillTwitterSquare size={"60px"} color="#1DA1F2"/></Link>
+                <Link to=""><AiFillFacebook size={"50px"} color="#1DA1F2"/></Link>
+                <Link to=""><FaPinterestSquare size={"70px"} color="#B7081B"/></Link>
+                <Link to=""><AiFillLinkedin size={"60px"} color="#0077B5"/></Link>
             </div>
         </div>
     </>
