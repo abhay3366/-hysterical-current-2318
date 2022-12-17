@@ -1,14 +1,22 @@
 import React from 'react'
 import { Container, Text,Heading,Box, Flex } from '@chakra-ui/react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate,useSearchParams } from 'react-router-dom'
 import { AiOutlineArrowLeft,AiOutlineDollar,AiFillDiff,AiFillAlipayCircle,AiFillCodeSandboxCircle,AiOutlineSafety,AiOutlineUserAdd,AiOutlineRight } from "react-icons/ai";
 import helpStyle from "../Css/Helpdesk.module.css"
 
 function HelpCenter() {
+  let [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
+
+
   function backFun(){
-    // console.log("hell")
     navigate('/blog',{replace:true})
+  }
+
+  function handleFun(){
+    setSearchParams({
+      key:"value"
+    })
   }
   return (
     <>
@@ -30,7 +38,7 @@ function HelpCenter() {
                     <Box  p={"8px"}>Account</Box>
                   </Flex>
                   <div>
-                    <Box  p={"8px"}>
+                    <Box  p={"8px"}  onClick={handleFun}>
                       <AiOutlineRight size={"20px"} />
                     </Box>
                   </div>

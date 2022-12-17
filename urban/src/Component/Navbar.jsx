@@ -1,24 +1,28 @@
 import React from 'react'
 import homeStyle from "../Css/Home.module.css"
 import { 
-    InputLeftAddon,
-    InputGroup,
-  Text,
-  Select,
+    FormControl,
+    FormLabel,
+    Text,
+    FormHelperText,
+  Button,
   Image,
   Input,
-  Heading,
-  Container,
-  Link,
-  InputRightAddon,
-  HStack,
-  Box,
-  Flex
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  useDisclosure,
+  Link
 
 } from '@chakra-ui/react'
 import { NavLink } from "react-router-dom";
 import Home_Data from "./HomeData"
 import Footer from "./Footer";
+
 
 // import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
@@ -40,21 +44,23 @@ const Links=[
         to:"/helpCenter",
         title:"Help Center"
     },
-    {
-        to:"/login",
-        title:"Login/Sign Up"
-    },
+    
 ]
 
 
 function Navbar() {
-    // const { isOpen, onOpen, onClose } = useDisclosure();
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const btnRef = React.useRef()
    
     let activeStyle = {
         
         color:"orange"
       };
 
+    //   !Signup
+    function signupModel(){
+        
+    }
     return (
         <>  
             {/* Navbar  */}
@@ -65,16 +71,60 @@ function Navbar() {
                 <div className={homeStyle.navLink}> 
                     {
                         Links.map((nav)=>(
-                            <NavLink to={nav.to} 
+                            <NavLink to={nav.to} ref={btnRef}  colorScheme='teal' onClick="{onOpen}"
                                 style={({ isActive }) =>
                                 isActive ? activeStyle : undefined
                                 }
                                 end
+                                
                             >
                                 {nav.title}
                             </NavLink>
                         ))
                     }
+                    {/* login btn */}
+                    <Button ref={btnRef} colorScheme='teal' variant='link' onClick={onOpen} pb="18px"  >
+                         Login
+                    </Button>
+                    <Drawer
+                        
+                        isOpen={isOpen}
+                        placement='right'
+                        onClose={onClose}
+                        finalFocusRef={btnRef}
+                    >
+                        <DrawerOverlay />
+                        <DrawerContent mt={"55px"}>
+                        <DrawerCloseButton />
+                        <DrawerHeader>Login</DrawerHeader>
+
+                        <DrawerBody>
+                        <FormControl>
+                            <FormLabel>Email address</FormLabel>
+                            <Input type='email' placeholder='Enter email' />
+                            <FormHelperText>We'll never share your email.</FormHelperText>
+
+                            <FormLabel>Password</FormLabel>
+                            <Input pr='4.5rem' type= 'password' placeholder='Enter password' />
+
+                            <Input pr='4.5rem' mt={"20px"} type= 'submit' value="Login" bg={"#179848"} color={"white"}/>
+                            
+                            <DrawerFooter>
+                            <Text>
+                                Don't have a account yet ?{' '}
+                                <Link color='teal.500' href='#' onClick={signupModel}>
+                                    SignUp
+                                </Link>
+                            </Text>
+                            </DrawerFooter>
+                    
+ 
+                        </FormControl>
+                        </DrawerBody>
+
+                        
+                        </DrawerContent>
+                    </Drawer>
                 </div>
             </div>
 
@@ -86,41 +136,3 @@ function Navbar() {
 
 export default Navbar
 
-
- {/* <Box px={4} pt={3} h={400} m={0} p={0} boxSize="borderBox" >
-            <Box alignItems={'center'} justifyContent={'space-between'} bg={'blue.100'}>
-                <Image src='https://res.cloudinary.com/urbanclap/image/upload/images/growth/home-screen/1615375782838-f890f8.jpeg' alt="ing"/>
-                <Box>
-                    <Box>
-                        <Image src="/image/logo.png" alt='logImg' ml={{lg:"50px"}} width={132} height={39}/>
-                    </Box>
-                    <HStack spacing={7} alignItems={'center'} mr={{lg:"50px"}}>
-                        {
-                            Links.map((nav)=>(
-                                <NavLink to={nav.to}
-                                    style={({ isActive }) =>
-                                    isActive ? activeStyle : undefined
-                                    }
-                                    end
-                                >
-                                    {nav.title}
-                                </NavLink>
-                            ))
-                        }
-                    </HStack>
-                </Box>
-            </Box>
-            <Text  fontSize='50px' color={"white"}>Home service, on demand</Text>
-        </Box> */}
-
-
-        // <Image 
-        //             src='https://res.cloudinary.com/urbanclap/image/upload/images/growth/home-screen/1615375782838-f890f8.jpeg'
-        //             alt="ing"
-
-        //              />
-        //             {/* <Image 
-        //                 src='https://res.cloudinary.com/urbanclap/image/upload/q_40,f_auto/categories/category_v2/category_19be5040.jpeg'
-        //                 alt="ing"
-        //                 objectFit='cover'
-        //              /> */}
