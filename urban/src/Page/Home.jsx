@@ -27,15 +27,6 @@ function Home() {
 
                     <div className={homeStyle.home_banner} >
                 <div>
-                    {/* <div className={homeStyle.banner_black_overlay}
-                    style={{
-                        width:"683px",
-                        height:"550px",
-                        position:"absolute",
-                        left:"0px",
-                        top:"63px",
-                        zIndex:"999", 
-                        }}>fsaddf</div> */}
                     <Image src='https://res.cloudinary.com/urbanclap/image/upload/q_40,f_auto/categories/category_v2/category_19be5040.jpeg' alt="ing"/>
                 </div>
                 <div className={homeStyle.home_banner_content}>

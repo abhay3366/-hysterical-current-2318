@@ -1,0 +1,10 @@
+.helpYou{
+    background-color: #eeebeb;
+    height: 150px;
+}
+.table{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+    line-height: 40px;
+}

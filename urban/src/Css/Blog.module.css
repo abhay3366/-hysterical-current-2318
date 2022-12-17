@@ -18,6 +18,40 @@
     margin: auto;
     gap: 20px;
 }
-.container{
+.BlogFooter{
+    display: grid;
+    justify-content:space-between;
+    align-self: center;
+    grid-template-columns: repeat(3,1fr);
+    
+    margin-top: 50px;
+    padding: 80px 20px 80px 20px;
+    background-color: #F5F5F5;
+    border-top: 2px solid blueviolet;
+}
+.social_icons{
+    display: flex; 
+    justify-content: flex-end;
+    align-self: center;
+}
+.menu{
+    background-color: aqua;
    
+    right: 0px;
+    position: absolute;
+    display: none;
+}
+.menu>li{
+    border-bottom: 1px solid red;
+     
+    /* background-color: rgb(230, 230, 230); */
+
+}
+.menu>li>a{
+    padding: 8px 19px;
+    display: inline-block;
+}
+.lifestyle:hover{
+    color: rgb(241, 19, 38);
+    display: block;
 }
