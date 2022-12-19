@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import homeStyle from "../Css/Home.module.css"
 import { 
     FormControl,
     FormLabel,
     Text,
     FormHelperText,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
   Button,
   Image,
   Input,
@@ -16,12 +23,14 @@ import {
   DrawerContent,
   DrawerCloseButton,
   useDisclosure,
-  Link
+  Link,
+  Lorem
 
 } from '@chakra-ui/react'
 import { NavLink } from "react-router-dom";
 import Home_Data from "./HomeData"
 import Footer from "./Footer";
+import Signup from "./Signup"
 
 
 // import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
@@ -50,6 +59,7 @@ const Links=[
 
 function Navbar() {
     const { isOpen, onOpen, onClose } = useDisclosure();
+    let  [signup,setSignup]=useState(false)
     const btnRef = React.useRef()
    
     let activeStyle = {
@@ -57,10 +67,15 @@ function Navbar() {
         color:"orange"
       };
 
-    //   !Signup
-    function signupModel(){
+      function signupFun(){
+      
+        setSignup(current => !current)
         
-    }
+      }
+
+
+    //   !Signup
+   
     return (
         <>  
             {/* Navbar  */}
@@ -110,11 +125,19 @@ function Navbar() {
                             <Input pr='4.5rem' mt={"20px"} type= 'submit' value="Login" bg={"#179848"} color={"white"}/>
                             
                             <DrawerFooter>
+
+                           
+
                             <Text>
                                 Don't have a account yet ?{' '}
-                                <Link color='teal.500' href='#' onClick={signupModel}>
-                                    SignUp
-                                </Link>
+                                
+                                    <button  onClick={signupFun}>Signup</button>
+                                   {/* {signup && (
+                                    alert("abhay kar lo")
+                                   )} */}
+
+                                   {signup && <Signup/>}
+                                
                             </Text>
                             </DrawerFooter>
                     
